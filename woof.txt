@@ -1,0 +1,6 @@
+# This is my test script
+[CMD] GUI SPACE
+Terminal
+[CMD] GUI
+who am i
+[CMD] ENTER
