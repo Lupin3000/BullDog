@@ -21,13 +21,13 @@ $ chmod u+x BullDog.py
 $ ./BullDog.py -h
 
 # simple barking
-$ ./BullDog.py examples/woof.txt
+$ ./BullDog.py examples/macOS/woof.txt
 
 # simple barking with default delay
-$ ./BullDog.py examples/woof.txt -d 0.05
+$ ./BullDog.py examples/macOS/woof.txt -d 0.05
 
 # just debug (no need for /dev/hidg0)
-$ ./BullDog.py examples/woof.txt -t
+$ ./BullDog.py examples/macOS/woof.txt -t
 ```
 
 the woof.txt (_text file_)...

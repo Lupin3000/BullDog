@@ -1,0 +1,6 @@
+# This is a simple barking script for macOS
+[CMD] GUI SPACE
+Terminal
+[CMD] ENTER
+osascript -e "set Volume 10"; nohup open 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' &>/dev/null &; clear
+[CMD] ENTER
