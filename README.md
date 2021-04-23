@@ -2,7 +2,7 @@
 
 Python USB OTG HID (Keyboard)
 
-> Inspired by RubberDucky, O.MG and other nice tools.
+> Inspired by RubberDucky, O.MG and other nice tools, I created this Python BullDog barking. As I was a little unhappy with the DuckyScript syntax, I changed this.
 
 ## Usage
 
