@@ -1,4 +1,4 @@
-# This is my test script
+# This is a barking script for macOS
 [CMD] GUI SPACE
 Terminal
 [CMD] GUI
