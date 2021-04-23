@@ -40,3 +40,12 @@ Terminal
 who am i
 [CMD] ENTER
 ```
+
+## ToDo's
+
+- Add triple and quadruple keystrokes
+- Testing for Windows
+- Testing for Linux
+- Direct Command Line input (_without Barking file_)
+- DuckyScript reader
+- more examples for different Operating Systems
