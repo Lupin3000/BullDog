@@ -2,7 +2,7 @@
 
 ![BullDog](./img/bulldog.jpg)
 
-Python USB OTG HID (_Keyboard_)
+Python USB OTG HID (_Keyboard_) for Raspberry PI Zero (_and other_)
 
 > Inspired by [RubberDucky](https://shop.hak5.org/products/usb-rubber-ducky-deluxe), [O.MG cable](https://mg.lol/blog/omg-cable/) and other nice tools, I created this Python BullDog barking. As I was a little unhappy with the DuckyScript syntax, I changed this.
 
