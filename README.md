@@ -33,7 +33,7 @@ $ ./BullDog.py examples/woof.txt -t
 the woof.txt (_text file_)...
 
 ```
-# This is my test script
+# This is a simple barking script for macOS
 [CMD] GUI SPACE
 Terminal
 [CMD] ENTER
