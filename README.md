@@ -7,11 +7,23 @@ Python USB OTG HID (Keyboard)
 ## Usage
 
 ```shell
+# clone repository
+$ git clone https://github.com/Lupin3000/BullDog.git
+
+# change file permissions
+$ chmod u+x BullDog.py
+
+# show help (optional)
+$ ./BullDog.py -h
+
 # simple barking
-$ ./BullDog.py woof.txt
+$ ./BullDog.py examples/woof.txt
 
 # simple barking with default delay
-$ ./BullDog.py woof.txt -d 0.05
+$ ./BullDog.py examples/woof.txt -d 0.05
+
+# just debug (no need for /dev/hidg0)
+$ ./BullDog.py examples/woof.txt -t
 ```
 
 the woof.txt (_text file_)...
