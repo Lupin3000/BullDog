@@ -32,7 +32,7 @@ $ ./BullDog.py examples/macOS/woof.txt -d 0.05
 $ ./BullDog.py examples/macOS/woof.txt -t
 ```
 
-the woof.txt (_text file_)...
+Example of the woof.txt (_text file_)...
 
 ```
 # This is a simple barking script for macOS
