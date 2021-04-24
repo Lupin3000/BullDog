@@ -75,6 +75,11 @@ who am i
 [CMD] ENTER
 ```
 
+- Comment starts with a `#`
+- Specific delays do start with `[DELAY]` and value is in milliseconds
+- Standard and/or Shifted keystrokes are just written
+- Commands and/or Modifier start with `[CMD]`
+
 ### Supported Keyboard Keys
 
 **Standard/Shifted Keys**
