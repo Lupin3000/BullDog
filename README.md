@@ -10,6 +10,11 @@ Python USB OTG HID (_Keyboard_) for Raspberry PI Zero (_and other_)
 
 If you need to create a USB OTG HID, [here](https://github.com/Lupin3000/Raspberry-PI-Tutorials) you will find all information (_for Raspberry PI Zero_).
 
+```shell
+# install git and pip (Python 3.x)
+$ sudo apt install git python3-pip
+```
+
 ## Usage
 
 ```shell
@@ -25,17 +30,19 @@ $ pip3 install .
 # show help (optional)
 $ BullDog -h
 
-# simple barking
-$ BullDog examples/macOS/woof.txt
+# execute barking script
+$ BullDog -b examples/macOS/woof.txt
 
-# simple barking with default delay
-$ BullDog examples/macOS/woof.txt -d 0.05
+# execute barking script with default delay
+$ BullDog -b examples/macOS/woof.txt -d 0.05
 
-# just debug (no need for /dev/hidg0)
-$ BullDog examples/macOS/woof.txt -t
+# just test barking script (no need for /dev/hidg0)
+$ BullDog -b examples/macOS/woof.txt -t
 ```
 
-Example of the woof.txt (_barking script text file_)...
+## The barking script
+
+Example of the barking script `woof.txt` (_simple text file_)...
 
 ```
 # This is a simple barking script example for macOS
@@ -53,9 +60,10 @@ Example of the woof.txt (_barking script text file_)...
 #
 
 [CMD] GUI SPACE
-Terminal
 [DELAY] 0.5
+Terminal
 [CMD] ENTER
+[DELAY] 0.5
 who am i
 [CMD] ENTER
 ```
