@@ -19,6 +19,9 @@ class WriteReport:
                    '_': 0x2D, '+': 0x2E, '{': 0x2F, '}': 0x30, '|': 0x31, '~': 0x32, ':': 0x33, '"': 0x34, '<': 0x36,
                    '>': 0x37, '?': 0x38}
 
+    #################################
+    # @ToDo: change for RubberDucky #
+    #################################
     COMMAND_KEYS = {'ENTER': 0x28, 'ESCAPE': 0x29, 'BACKSPACE': 0x2A, 'TAB': 0x2B, 'SPACE': 0x2C, 'CAPS_LOCK': 0x39,
                     'F1': 0x3A, 'F2': 0x3B, 'F3': 0x3C, 'F4': 0x3D, 'F5': 0x3E, 'F6': 0x3F, 'F7': 0x40, 'F8': 0x41,
                     'F9': 0x42, 'F10': 0x43, 'F11': 0x44, 'F12': 0x45, 'PRINT': 0x46, 'SCROLL_LOCK': 0x47,

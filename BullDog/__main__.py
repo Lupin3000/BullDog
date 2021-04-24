@@ -25,7 +25,7 @@ def main():
     parser = argparse.ArgumentParser(description=description, epilog=epilog)
 
     # set optional arguments
-    parser.add_argument('-d', '--delay', help="default delay between all inputs, default is 0", default=0)
+    parser.add_argument('-d', '--delay', help="default delay between all inputs, default is 0 seconds", default=0)
     parser.add_argument('-t', '--test', help='just debug input file and report', default=False, action='store_true')
     parser.add_argument('-b', '--barking', help='your barking script location')
     parser.add_argument('-q', '--quack', help='your ducky script location')
@@ -119,6 +119,14 @@ def process_ducky_file(line_string):
     """
     print('Work in progress... please be patient.')
     exit(0)
+
+    if not (line_string.startswith('REM')):
+        if line_string.startswith('STRING'):
+            pass
+        elif line_string.startswith('DELAY'):
+            pass
+        else:
+            pass
 
 
 if __name__ == '__main__':

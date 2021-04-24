@@ -1,0 +1,8 @@
+REM This is a example for RubberDucky
+GUI SPACE
+DELAY 50
+STRING terminal
+ENTER
+DELAY 50
+STRING who am i
+ENTER
