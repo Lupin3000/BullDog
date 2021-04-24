@@ -57,7 +57,7 @@ Example of the barking script `woof.txt` (_simple text file_)...
 #       |/ __:_     `. |  ,
 #       | ( ,-.`-.    ;'  ;
 #       | |  ,   `.      /
-#       ;-'`:::._,`.__),'
+#       `-'`:::._,`.__),'
 #
 
 [CMD] GUI SPACE
