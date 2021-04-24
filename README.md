@@ -49,7 +49,7 @@ $ BullDog --command "GUI SPACE" -t
 
 > **Note:** `-b|--barking`, `--text` and `--command` cannot be used together!
 
-## The barking script
+## The Barking script
 
 Example of the barking script `woof.txt` (_simple text file_)...
 
