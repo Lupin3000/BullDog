@@ -60,10 +60,10 @@ Example of the barking script `woof.txt` (_simple text file_)...
 #
 
 [CMD] GUI SPACE
-[DELAY] 0.5
+[DELAY] 0.25
 Terminal
 [CMD] ENTER
-[DELAY] 0.5
+[DELAY] 0.05
 who am i
 [CMD] ENTER
 ```
