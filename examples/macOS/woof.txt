@@ -1,6 +1,7 @@
 # This is a simple barking script for macOS
 [CMD] GUI SPACE
 Terminal
+[DELAY] 0.5
 [CMD] ENTER
 who am i
 [CMD] ENTER

@@ -16,28 +16,32 @@ If you need to create a USB OTG HID, [here](https://github.com/Lupin3000/Raspber
 # clone repository
 $ git clone https://github.com/Lupin3000/BullDog.git
 
-# change file permissions
-$ chmod u+x BullDog.py
+# change into cloned directory
+$ cd BullDog/
+
+# install via pip3
+$ pip3 install .
 
 # show help (optional)
-$ ./BullDog.py -h
+$ BullDog -h
 
 # simple barking
-$ ./BullDog.py examples/macOS/woof.txt
+$ BullDog examples/macOS/woof.txt
 
 # simple barking with default delay
-$ ./BullDog.py examples/macOS/woof.txt -d 0.05
+$ BullDog examples/macOS/woof.txt -d 0.05
 
 # just debug (no need for /dev/hidg0)
-$ ./BullDog.py examples/macOS/woof.txt -t
+$ BullDog examples/macOS/woof.txt -t
 ```
 
-Example of the woof.txt (_text file_)...
+Example of the woof.txt (_barking script text file_)...
 
 ```
-# This is a simple barking script for macOS
+# This is a simple barking script example for macOS
 [CMD] GUI SPACE
 Terminal
+[DELAY] 0.5
 [CMD] ENTER
 who am i
 [CMD] ENTER
@@ -51,10 +55,10 @@ Decimals from 4 till 39, 44, 45 till 56
 
 **Modifier Keys**
 
-- LEFT_CONTROL or RIGHT_CONTROL or CONTROL
-- LEFT_SHIFT or RIGHT_SHIFT or SHIFT
-- LEFT_ALT or RIGHT_ALT or ALT
-- LEFT_GUI or RIGHT_GUI or GUI or WIN
+- LEFT_CONTROL or RIGHT_CONTROL (_or simply **CONTROL**_)
+- LEFT_SHIFT or RIGHT_SHIFT (_or simply **SHIFT**_)
+- LEFT_ALT or RIGHT_ALT (_or simply **ALT**_)
+- LEFT_GUI or RIGHT_GUI (_or simply **GUI** or **WIN**_)
 
 **Command Keys**
 
@@ -69,8 +73,7 @@ Maybe some time later ;)
 ## ToDo's
 
 - Add triple and quadruple keystrokes
-- Testing for Windows
-- Testing for Linux
+- Testing keyboard on Windows/Linux/macOS (_not the Python code_)
 - Direct Command Line input (_without Barking file_)
 - DuckyScript reader
 - more examples for different Operating Systems

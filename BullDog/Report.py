@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
-import argparse
-import logging
-from re import sub
-from sys import exit
 from time import sleep
+from re import sub
 
 
-class SerialKeyboard:
+class WriteReport:
     SIMPLE_CHARS = {'a': 0x04, 'b': 0x05, 'c': 0x06, 'd': 0x07, 'e': 0x08, 'f': 0x09, 'g': 0x0A, 'h': 0x0B, 'i': 0x0C,
                     'j': 0x0D, 'k': 0x0E, 'l': 0x0F, 'm': 0x10, 'n': 0x11, 'o': 0x12, 'p': 0x13, 'q': 0x14, 'r': 0x15,
                     's': 0x16, 't': 0x17, 'u': 0x18, 'v': 0x19, 'w': 0x1A, 'x': 0x1B, 'y': 0x1C, 'z': 0x1D, '1': 0x1E,
@@ -36,99 +33,40 @@ class SerialKeyboard:
     MODIFIER_KEY = {'LEFT_CONTROL': 0x01, 'LEFT_SHIFT': 0x02, 'LEFT_ALT': 0x04, 'LEFT_GUI': 0x08, 'RIGHT_CONTROL': 0x10,
                     'RIGHT_SHIFT': 0x20, 'RIGHT_ALT': 0x40, 'RIGHT_GUI ': 0x80}
 
-    def __init__(self):
+    def __init__(self, delay=0, debug=False):
         """
         Class constructor to assign user arguments
         and to set default variables
+
+        :param delay: default delay after each keystroke
+        :type delay: float
+        :param debug: enable debug output (no report to /dev/hidg0
+        :type debug: bool
         """
-        self.__release_keys = bytearray(8)
+        self.__DELAY = float(delay)
+        self.__DEBUG = bool(debug)
 
-        # initialize logging
-        self.__logger = logging.getLogger(__name__)
-
-        # set argument description/epilog
-        description = 'OTG USB HID'
-        epilog = 'The author of this code take no responsibility for your use or misuse'
-        parser = argparse.ArgumentParser(description=description, epilog=epilog)
-
-        # set optional arguments
-        parser.add_argument('-d', '--delay', help="default delay between all inputs, default is 0", default=0)
-        parser.add_argument('-t', '--test', help='just debug input file ', default=False, action='store_true')
-        parser.add_argument('-v', "--verbosity", help="increase output verbosity", action="count")
-
-        # set mandatory arguments
-        parser.add_argument('bark', help='your bark script')
-
-        # read arguments by user
-        args = parser.parse_args()
-
-        # set logging level
-        if args.verbosity == 2:
-            logging.basicConfig(level=logging.DEBUG)
-        elif args.verbosity == 1:
-            logging.basicConfig(level=logging.INFO)
-        else:
-            logging.basicConfig(level=logging.ERROR)
-
-        # set default delay
-        if args.delay and float(args.delay) > 0:
-            self.__DELAY = args.delay
-        else:
-            self.__DELAY = 0
-
-        #  set debug mode
-        if args.test:
-            self.__DEBUG = True
-        else:
-            self.__DEBUG = False
-
-        # set filename
-        if len(args.bark.strip()) == 0:
-            print('You did not provide any bark script?')
-            exit(1)
-        else:
-            self.__FILENAME = args.bark
-
-        self.__logger.debug("Delay: {:<5} Filename: {}".format(self.__DELAY, self.__FILENAME))
-
-    def read_file(self):
+    def report_command(self, commands):
         """
-        Read file by line, provided by user as argument
-        and call next method '__process_file_line'
+        Keystroke commands for keyboard
+
+        :param commands: keystrokes commands
+        :type commands: str
         """
-        with open(self.__FILENAME, 'r') as file_handler:
+        characters = str(commands.strip())
+        self.__process_command(characters)
 
-            for line in file_handler:
-                line_string = line.rstrip("\n")
-
-                if not line_string.strip():
-                    continue
-                else:
-                    self.__logger.debug("{}".format(line_string))
-                    self.__process_file_line(line_string)
-
-    def __process_file_line(self, line_string):
+    def report_string(self, text):
         """
-        Parse each line of the file
-        and split into commands, delays or character
+        Keystroke text for keyboard
 
-        :param line_string: line of file
-        :type line_string: str
+        :param text: keystrokes text
+        :type text: str
         """
-        if not (line_string.startswith('#')):
-
-            if line_string.__contains__('[CMD]'):
-                line = line_string.replace('[CMD]', '').strip()
-                self.__process_command(line)
-            elif line_string.__contains__('[DELAY]'):
-                value = float(line_string.replace('[DELAY]', '').strip())
-                self.__logger.debug("Sleep for {} seconds".format(value))
-                sleep(value)
-            else:
-                list_string = list(line_string.strip())
-
-                for character in list_string:
-                    self.__process_character(character)
+        characters = str(text.strip())
+        list_string = list(characters)
+        for character in list_string:
+            self.__process_character(character)
 
     def __process_command(self, line):
         """
@@ -164,8 +102,8 @@ class SerialKeyboard:
             if self.__DEBUG:
                 print("CMD: {:<25} DEC: {:<7} {}".format(line, self.COMMAND_KEYS[line], report))
             else:
-                self.write_report_to_dev(report)
-                self.write_report_to_dev(self.__release_keys)
+                self.__write_report_to_dev(report)
+                self.__release_all_keys()
 
         # double command (modifier)
         if word_count == 2:
@@ -187,14 +125,17 @@ class SerialKeyboard:
             if self.__DEBUG:
                 print("CMD: {:<12} {:<12} DEC: {:<3} {:<3} {}".format(word_list[0], word_list[1], dec1, dec2, report))
             else:
-                self.write_report_to_dev(report)
-                self.write_report_to_dev(self.__release_keys)
+                self.__write_report_to_dev(report)
+                self.__release_all_keys()
 
         ##########################################
         # @ToDo: triple and quadruple keystrokes #
         ##########################################
         if word_count >= 3:
             pass
+
+        # default delay
+        sleep(self.__DELAY)
 
     def __process_character(self, character):
         """
@@ -214,8 +155,8 @@ class SerialKeyboard:
             if self.__DEBUG:
                 print("CHR: {:<25} DEC: {:<7} {}".format(character, self.SIMPLE_CHARS[character], report))
             else:
-                self.write_report_to_dev(report)
-                self.write_report_to_dev(self.__release_keys)
+                self.__write_report_to_dev(report)
+                self.__release_all_keys()
 
         # modified characters
         if character in self.SHIFT_CHARS:
@@ -225,11 +166,22 @@ class SerialKeyboard:
             if self.__DEBUG:
                 print("CHR: {:<25} DEC: {:<7} {}".format(character, self.SHIFT_CHARS[character], report))
             else:
-                self.write_report_to_dev(report)
-                self.write_report_to_dev(self.__release_keys)
+                self.__write_report_to_dev(report)
+                self.__release_all_keys()
+
+        # default delay
+        sleep(self.__DELAY)
+
+    @classmethod
+    def __release_all_keys(cls):
+        """
+        Release all keys by empty bytearray (8 bytes)
+        """
+        empty_key = bytearray(8)
+        WriteReport.__write_report_to_dev(empty_key)
 
     @staticmethod
-    def write_report_to_dev(report):
+    def __write_report_to_dev(report):
         """
         Write report to /dev/hidg0 device
 
@@ -238,8 +190,3 @@ class SerialKeyboard:
         """
         with open('/dev/hidg0', 'rb+') as file_handler:
             file_handler.write(report)
-
-
-if __name__ == '__main__':
-    keyboard = SerialKeyboard()
-    keyboard.read_file()
