@@ -10,6 +10,7 @@ setup(
     python_requires='>=3.7',
     platforms='Linux',
     packages=['BullDog'],
+    keywords='usb otg hid keyboard',
     entry_points={
         'console_scripts': [
             'bulldog = BullDog.__main__:main'
