@@ -39,6 +39,19 @@ Example of the woof.txt (_barking script text file_)...
 
 ```
 # This is a simple barking script example for macOS
+#
+#        ,--._______,-.
+#       ,','  ,    .  ,_`-.
+#      / /  ,' , _` ``. |  )
+#     (,';'""`/ '"`-._ ` \/
+#       : ,o.-`- ,o.  )\` -'
+#       : , d8b ^-.   '|   `
+#       |/ __:_     `. |  ,
+#       | ( ,-.`-.    ;'  ;
+#       | |  ,   `.      /
+#       ;-'`:::._,`.__),'
+#
+
 [CMD] GUI SPACE
 Terminal
 [DELAY] 0.5
