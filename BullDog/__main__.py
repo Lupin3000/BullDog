@@ -27,9 +27,11 @@ def main():
     # set optional arguments
     parser.add_argument('-d', '--delay', help="default delay after each keystroke, default is 0 seconds", default=0)
     parser.add_argument('-t', '--test', help='just debug input file and report', default=False, action='store_true')
-    parser.add_argument('-b', '--barking', help='your barking script location')
-    parser.add_argument('--text', help='some string to write directly')
-    parser.add_argument('--command', help='some commands to write directly')
+
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-b', '--barking', help='your barking script location')
+    group.add_argument('--text', help='some string to write directly')
+    group.add_argument('--command', help='some commands to write directly')
 
     # read arguments by user
     args = parser.parse_args()
