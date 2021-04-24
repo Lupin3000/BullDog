@@ -97,5 +97,4 @@ Maybe some time later ;)
 - Add triple and quadruple keystrokes
 - Testing keyboard on Windows/Linux/macOS (_not the Python code_)
 - Direct Command Line input (_without Barking file_)
-- DuckyScript reader
 - more examples for different Operating Systems

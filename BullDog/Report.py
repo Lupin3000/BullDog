@@ -19,9 +19,6 @@ class WriteReport:
                    '_': 0x2D, '+': 0x2E, '{': 0x2F, '}': 0x30, '|': 0x31, '~': 0x32, ':': 0x33, '"': 0x34, '<': 0x36,
                    '>': 0x37, '?': 0x38}
 
-    #################################
-    # @ToDo: change for RubberDucky #
-    #################################
     COMMAND_KEYS = {'ENTER': 0x28, 'ESCAPE': 0x29, 'BACKSPACE': 0x2A, 'TAB': 0x2B, 'SPACE': 0x2C, 'CAPS_LOCK': 0x39,
                     'F1': 0x3A, 'F2': 0x3B, 'F3': 0x3C, 'F4': 0x3D, 'F5': 0x3E, 'F6': 0x3F, 'F7': 0x40, 'F8': 0x41,
                     'F9': 0x42, 'F10': 0x43, 'F11': 0x44, 'F12': 0x45, 'PRINT': 0x46, 'SCROLL_LOCK': 0x47,
@@ -30,9 +27,7 @@ class WriteReport:
                     'LEFT_CONTROL': 0xE0, 'LEFT_SHIFT': 0xE1, 'LEFT_ALT': 0xE2, 'LEFT_GUI': 0xE3, 'RIGHT_CONTROL': 0xE4,
                     'RIGHT_SHIFT': 0xE5, 'RIGHT_ALT': 0xE6, 'RIGHT_GUI': 0xE7}
 
-    ##################################################################
-    # not all are in use yet (just prepared for further development) #
-    ##################################################################
+    # not all are in use yet (just prepared for further development)
     MODIFIER_KEY = {'LEFT_CONTROL': 0x01, 'LEFT_SHIFT': 0x02, 'LEFT_ALT': 0x04, 'LEFT_GUI': 0x08, 'RIGHT_CONTROL': 0x10,
                     'RIGHT_SHIFT': 0x20, 'RIGHT_ALT': 0x40, 'RIGHT_GUI ': 0x80}
 
@@ -90,6 +85,7 @@ class WriteReport:
         line = sub('(.*)ALT', 'LEFT_ALT', line)
         line = sub('(.*)GUI', 'LEFT_GUI', line)
         line = sub('(.*)WIN', 'LEFT_GUI', line)
+        line = sub('(.*)WINDOWS', 'LEFT_GUI', line)
 
         # count words
         word_count = len(line.split())
