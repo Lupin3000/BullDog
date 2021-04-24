@@ -47,6 +47,8 @@ $ BullDog --text "who am i" -t
 $ BullDog --command "GUI SPACE" -t
 ```
 
+> Note: `-b|--barking`, `--text` and `--command` cannot be used at the same command!
+
 ## The barking script
 
 Example of the barking script `woof.txt` (_simple text file_)...
