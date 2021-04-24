@@ -28,6 +28,8 @@ def main():
     parser.add_argument('-d', '--delay', help="default delay between all inputs, default is 0 seconds", default=0)
     parser.add_argument('-t', '--test', help='just debug input file and report', default=False, action='store_true')
     parser.add_argument('-b', '--barking', help='your barking script location')
+    parser.add_argument('--text', help='some string to write directly')
+    parser.add_argument('--command', help='some commands to write directly')
 
     # read arguments by user
     args = parser.parse_args()
@@ -41,12 +43,20 @@ def main():
         debug = True
 
     # verify script
-    if not args.barking:
-        print('There is no barking script provided!')
+    if not args.barking and not args.text and not args.command:
+        print('There is nothing for barking provided!')
         exit(1)
 
     if args.barking:
         read_script_file(args.barking)
+
+    if args.text:
+        report = WriteReport(delay=delay, debug=debug)
+        report.report_string(args.text)
+
+    if args.command:
+        report = WriteReport(delay=delay, debug=debug)
+        report.report_command(args.command)
 
 
 def read_script_file(script_path):

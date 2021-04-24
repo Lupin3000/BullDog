@@ -39,6 +39,12 @@ $ BullDog -b examples/macOS/woof.txt -d 0.05
 
 # just test barking script (no need for /dev/hidg0)
 $ BullDog -b examples/macOS/woof.txt -t
+
+# write some string directly
+$ BullDog --text "who am i" -t
+
+# write some command directly
+$ BullDog --command "GUI SPACE" -t
 ```
 
 ## The barking script
@@ -96,5 +102,4 @@ Maybe some time later ;)
 
 - Add triple and quadruple keystrokes
 - Testing keyboard on Windows/Linux/macOS (_not the Python code_)
-- Direct Command Line input (_without Barking file_)
 - more examples for different Operating Systems
