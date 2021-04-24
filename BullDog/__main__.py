@@ -21,7 +21,7 @@ def main():
     filename = None
 
     # set argument description/epilog
-    description = 'OTG USB HID'
+    description = 'Python USB OTG Keyboard (Linux)'
     epilog = 'The author of this code take no responsibility for your use or misuse'
     parser = argparse.ArgumentParser(description=description, epilog=epilog)
 

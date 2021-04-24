@@ -3,11 +3,13 @@ from setuptools import setup
 setup(
     name='BullDog',
     version='0.0.1',
-    packages=['BullDog'],
     url='https://softwaretester.info',
-    license='',
-    author='Steffen Lorenz',
-    description='Python USB OTG Keyboard',
+    license='GNU Library or Lesser General Public License (LGPL)',
+    author='Lupin3000',
+    description='Python3 USB OTG Keyboard',
+    python_requires='>=3.7',
+    platforms='Linux',
+    packages=['BullDog'],
     entry_points={
         'console_scripts': [
             'bulldog = BullDog.__main__:main'
@@ -16,6 +18,7 @@ setup(
     classifiers=[
         "Topic :: Utilities",
         "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)"
         "Environment :: Console"
     ]
 )
