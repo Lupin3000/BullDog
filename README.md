@@ -5,7 +5,7 @@
 Python USB OTG HID (_Keyboard_) for Raspberry PI Zero (_and other_)
 
 > Inspired by [RubberDucky](https://shop.hak5.org/products/usb-rubber-ducky-deluxe), [O.MG cable](https://mg.lol/blog/omg-cable/) and other nice tools (_e.g. [Cactus WHID](https://github.com/whid-injector/WHID), BadUSB_), I created this Python3 BullDog cli tool.
-> As I was a little unhappy with the DuckyScript and WHID syntax, I developed the new Barking syntax (_which is very similar_).
+> As I was a little unhappy with the DuckyScript and WHID syntax, I developed the new [Barking syntax](https://github.com/Lupin3000/BullDog#the-barking-script) (_which is very similar_).
 
 ## Preparation
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/Lupin3000/BullDog.git
 # change into cloned directory
 $ cd BullDog/
 
-# install via pip3
+# install via pip3 (system wide or virtualenv) 
 $ pip3 install .
 
 # show help (optional)
