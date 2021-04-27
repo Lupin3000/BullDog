@@ -29,22 +29,22 @@ $ cd BullDog/
 $ pip3 install .
 
 # show help (optional)
-$ BullDog -h
+$ bulldog -h
 
 # execute barking script
-$ BullDog -b examples/macOS/woof.txt
+$ bulldog -b examples/macOS/woof.txt
 
 # execute barking script with default delay
-$ BullDog -b examples/macOS/woof.txt -d 0.05
+$ bulldog -b examples/macOS/woof.txt -d 0.05
 
 # just test barking script (no need for /dev/hidg0)
-$ BullDog -b examples/macOS/woof.txt -t
+$ bulldog -b examples/macOS/woof.txt -t
 
 # write some string directly
-$ BullDog --text "who am i" -t
+$ bulldog --text "who am i" -t
 
 # write some command directly
-$ BullDog --command "GUI SPACE" -t
+$ bulldog --command "GUI SPACE" -t
 ```
 
 > **Note:** `-b|--barking`, `--text` and `--command` cannot be used together!
@@ -69,10 +69,10 @@ Example of the barking script `woof.txt` (_simple text file_)...
 #
 
 [CMD] GUI SPACE
-[DELAY] 0.25
+[DELAY] 1.0
 Terminal
 [CMD] ENTER
-[DELAY] 0.05
+[DELAY] 1.0
 who am i
 [CMD] ENTER
 ```
