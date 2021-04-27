@@ -1,0 +1,7 @@
+# This is a simple barking script for Windows
+[CMD] GUI r
+[DELAY] 1.0
+Notepad
+[CMD] ENTER
+[DELAY] 1.0
+Hello Windows User

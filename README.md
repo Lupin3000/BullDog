@@ -108,5 +108,3 @@ Maybe some time later ;)
 ## ToDo's
 
 - Add triple and quadruple keystrokes
-- Testing keyboard on Windows/Linux/macOS (_not the Python code_)
-- more examples for different Operating Systems
